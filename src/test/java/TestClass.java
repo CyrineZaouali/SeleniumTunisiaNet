@@ -28,6 +28,8 @@ public class TestClass {
     public void prepareDriver() {
         driver = new ChromeDriver();
         javaScriptExecutor = (JavascriptExecutor) driver;
+        driverWait = new WebDriverWait(driver, 3);
+        
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
@@ -35,8 +37,6 @@ public class TestClass {
     @Test
     public void buyProcessTestCase() {
         driver.get(url);
-        driverWait = new WebDriverWait(driver, 3);
-
         try {
             login();
             searchProduct(productToSearch);
