@@ -31,29 +31,24 @@ public class TestClass {
 
         try {
             //click on the user icon
-            WebElement userIcon = driver.findElement(By.className("user-info"));
-            driverWait.until(ExpectedConditions.visibilityOf(userIcon));
-            javaScriptExecutor.executeScript("arguments[0].click()", userIcon);
+            driverWait.until(ExpectedConditions.elementToBeCLickable(By.className("user-info")));
+            driver.findElement(By.className("user-info")).click();
 
             //click on connexion
-            WebElement dropDown = driver.findElement(By.cssSelector(".user-down > li > a"));
-            driverWait.until(ExpectedConditions.visibilityOf(dropDown));
-            dropDown.click();
+            driverWait.until(ExpectedConditions.elementToBeCLickable(By.cssSelector(".user-down > li > a"));
+            driver.findElement(By.cssSelector(".user-down > li > a")).click();
 
             //fill out email field
-            WebElement emailInput = driver.findElement(By.cssSelector("input[name='email']"));
-            driverWait.until(ExpectedConditions.visibilityOf(emailInput));
-            emailInput.sendKeys("cyrine.zaouali@insat.ucar.tn");
+            driverWait.until(ExpectedConditions.visibilityOf(By.cssSelector("input[name='email']")));
+            driver.findElement(By.cssSelector("input[name='email']")).sendKeys("cyrine.zaouali@insat.ucar.tn");
 
             //fill out password field
-            WebElement passwordInput = driver.findElement(By.cssSelector("input[name='password']"));
-            driverWait.until(ExpectedConditions.visibilityOf(passwordInput));
-            passwordInput.sendKeys("cyrineINSAT");
+            driverWait.until(ExpectedConditions.visibilityOf(By.cssSelector("input[name='password']")));
+            driver.findElement(By.cssSelector("input[name='password']")).sendKeys("cyrineINSAT");
 
             //click on connexion
-            WebElement submitButton = driver.findElement(By.id("submit-login"));
-            driverWait.until(ExpectedConditions.visibilityOf(submitButton));
-            submitButton.click();
+            driverWait.until(ExpectedConditions.elementToBeCLickable(By.id("submit-login"));
+            driver.findElement(By.id("submit-login")).click();
 
             //search for the article in the search bar then hit enter
             WebElement searchBar = driver.findElement(By.id("search_query_top"));
